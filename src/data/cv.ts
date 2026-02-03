@@ -1,4 +1,15 @@
-interface Project {
+import type { ImageMetadata } from "astro";
+
+const projectThumbs = import.meta.glob<{
+  default: ImageMetadata
+}>('/src/assets/projectThumbs/*.{jpeg,jpg,png,gif,webp}', { eager: true });
+
+function getProjectImage(filename: string): ImageMetadata | undefined {
+  const path = `/src/assets/projectThumbs/${filename}`;
+  return projectThumbs[path]?.default;
+}
+
+interface HighlightedProject {
   title: string;
   achievements: string[];
 }
@@ -9,11 +20,27 @@ interface Experience {
   period: string;
   summary?: string;
   responsibilities?: string[];
-  projects?: Project[]
+  projects?: HighlightedProject[]
 }
 
 interface Skill {
   name: string;
+  icon: string;
+}
+
+interface Project {
+  title: string;
+  description?: string;
+  tags?: string[];
+  label?: string;
+  repoLink?: string;
+  demoLink?: string;
+  thumb?: ImageMetadata;
+}
+
+interface Contact{
+  title: string;
+  link: string;
   icon: string;
 }
 
@@ -24,8 +51,8 @@ interface CVData {
       lastname: string;
     };
     role: string;
-    subtitle1?: string;
-    subtitle2?: string;
+    tagline?: string;
+    availability?: string;
     location: string;
     yearsExperience: string;
   };
@@ -34,13 +61,22 @@ interface CVData {
     description: string;
   };
   contact: {
-    email: string;
-    linkedin: string;
-    github: string;
-    phone: string;
+    title: string;
+    description: string;
+    contactLinks: Contact[]
   };
-  experience: Experience[];
-  skills: Skill[];
+  experience: {
+    title: string,
+    jobs: Experience[];
+  };
+  skills: {
+    title: string;
+    skillSet: Skill[];
+  }
+  worksProjects: {
+    title: string;
+    projects: Project[];
+  }
 }
 
 export const CV: CVData = {
@@ -50,7 +86,7 @@ export const CV: CVData = {
       lastname: 'Illanes'
     },
     role: 'Full Stack Developer',
-    subtitle1: 'Frontend enfocado en producción, integración con APIs y backend',
+    tagline: 'Frontend enfocado en producción, integración con APIs y backend',
     location: 'Coquimbo, Chile',
     yearsExperience: '7+'
   },
@@ -59,71 +95,115 @@ export const CV: CVData = {
     description: 'Soy Desarrollador Full Stack con foco en Frontend, con experiencia en aplicaciones en producción y trabajo colaborativo con equipos de UX, producto y backend.n\
       Desarrollo interfaces con React y Next.js, integrando APIs REST y backend en Python (FastAPI, PostgreSQL). Mi formación en UX/UI me permite construir productos accesibles, mantenibles y pensados para usuarios reales, no solo desde lo visual sino también desde lo técnico.'
   },
-  contact: {
-    email: 'c.illanesdonoso@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/camiloillanes/',
-    github: 'https://github.com/kusahio',
-    phone: '+56990717236',
+  experience: {
+    title: 'Experiencia',
+    jobs: [
+      {
+        company: 'Red MTS',
+        role: 'Desarrollador Front-End / UI',
+        period: 'Jul 2020 - Oct 2024',
+        responsibilities: [
+          'Desarrollo de interfaces en producción con React y componentes reutilizables.',
+          'Integración con APIs REST y optimización de flujos.',
+          'Trabajo en equipos ágiles bajo control de versiones (Git)',
+        ],
+        summary: 'Interfaces en producción con React, integración con APIs REST y trabajo en equipos ágiles.',
+        projects: [
+          {
+            title: 'Plataforma E-commerce MTS (Portal del socio)',
+            achievements: [
+              'Desarrollo de componentes frontend con React.',
+              'Integración con APIs REST.',
+              'Optimización de rendimiento y mantenibilidad.'
+            ]
+          },
+        ]
+      },
+      {
+        company: 'Walmart Chile',
+        role: 'Diseñador Web',
+        period: 'Jul 2017 - Ene 2020',
+        responsibilities: [
+          'Desarrollo y mantenimiento de interfaces web accesibles y responsive.',
+          'Mejora de semántica HTML y flujos mobile-first.',
+          'Participación en el diseño e implementación del checkout “Buy Smart”'
+        ],
+        summary: 'Desarrollo de interfaces web accesibles y optimizadas para e-commerce, con foco mobile-first.',
+        projects: [
+          {
+            title: 'Checkout “Buy Smart” - Walmart',
+            achievements: [
+              'Implementación de interfaz accesible y optimizada para el proceso de pago.',
+              'Enfoque mobile-first y mejora de experiencia de usuario.'
+            ]
+          },
+        ]
+      },
+      {
+        company: 'Falabella Retail S.A',
+        role: 'Diseñador Web',
+        period: 'Feb 2017 - Jul 2017',
+        responsibilities: [
+          'Implementación de vistas web responsivas.',
+          'Soporte frontend utilizando JavaScript.',
+        ],
+        summary: 'Implementación de vistas web responsivas y soporte frontend con JavaScript.'
+      }
+    ]
   },
-  experience: [
-    {
-      company: 'Red MTS',
-      role: 'Desarrollador Front-End / UI',
-      period: 'Jul 2020 - Oct 2024',
-      responsibilities: [
-        'Desarrollo de interfaces con React y componentes reutilizables.',
-        'Integración de aplicaciones con APIs REST.',
-        'Participación en migraciones de sistemas y optimización de flujos bajo arquitectura MVC.',
-        'Trabajo en equipos ágiles utilizando Git y control de versiones.'
-      ],
-      projects: [
-        {
-          title: 'Plataforma E-commerce MTS (Portal del socio)',
-          achievements: [
-            'Desarrollo de componentes frontend con React.',
-            'Integración con APIs REST.',
-            'Optimización de rendimiento y mantenibilidad.'
-          ]
-        },
-      ]
-    },
-    {
-      company: 'Walmart Chile',
-      role: 'Diseñador Web',
-      period: 'Jul 2017 - Ene 2020',
-      responsibilities: [
-        'Desarrollo y mantenimiento de interfaces web accesibles y responsive.',
-        'Mejora de semántica HTML y flujos mobile-first.',
-        'Participación en el diseño e implementación del checkout “Buy Smart”'
-      ],
-      projects: [
-        {
-          title: 'Checkout “Buy Smart” - Walmart',
-          achievements: [
-            'Implementación de interfaz accesible y optimizada para el proceso de pago.',
-            'Enfoque mobile-first y mejora de experiencia de usuario.'
-          ]
-        },
-      ]
-    },
-    {
-      company: 'Falabella Retail S.A',
-      role: 'Diseñador Web',
-      period: 'Feb 2017 - Jul 2017',
-      responsibilities: [
-        'Implementación de vistas web responsivas.',
-        'Soporte frontend utilizando JavaScript.',
-      ]
-    }
-  ],
-  skills: [
-    { name: "React", icon: "react" },
-    { name: "Next.js", icon: "nextjs" },
-    { name: "TypeScript", icon: "typescript" },
-    { name: "Python", icon: "python" },
-    { name: "FastAPI", icon: "fastapi" },
-    { name: "PostgreSQL", icon: "postgresql" },
-    { name: "Docker", icon: "docker" },
-    { name: "Figma", icon: "figma" },
-  ]
+  skills: {
+    title: 'Tech Stack',
+    skillSet: [
+      { name: "React", icon: "react" },
+      { name: "Next.js", icon: "nextjs" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "Python", icon: "python" },
+      { name: "FastAPI", icon: "fastapi" },
+      { name: "PostgreSQL", icon: "postgresql" },
+      { name: "Docker", icon: "docker" },
+      { name: "Git", icon: "git" },
+      { name: "Figma", icon: "figma" },
+    ]
+  },
+  worksProjects: {
+    title: 'Proyectos',
+    projects: [
+      {
+        title: 'Web Dentimagen',
+        description: 'Diseño y desarrollo web enfocado en la experiencia de usuario.',
+        demoLink: 'https://dentimagen.cl/',
+        tags: ['wordpress'],
+        thumb: getProjectImage('dentimagen.jpg')
+      },
+      {
+        title: 'Task Manager',
+        description: 'Proyecto de gestor de tareas.',
+        demoLink: 'https://task-manager-brown-tau.vercel.app/',
+        repoLink: 'https://github.com/kusahio/task_manager',
+        tags: ['nextjs', 'python', 'typescript', 'postgres', 'fastapi'],
+        thumb: getProjectImage('task-manager.png')
+      }
+    ]
+  },
+  contact: {
+    title: 'Hablemos',
+    description: 'Abierto a nuevas oportunidades y proyectos. Puedes escribirme por email o LinkedIn.',
+    contactLinks: [
+      {
+        title: 'Email',
+        link: 'c.illanesdonoso@gmail.com',
+        icon: 'email'
+      },
+      {
+        title: 'Linkedin',
+        link: 'https://www.linkedin.com/in/camiloillanes/',
+        icon: 'linkedin'
+      },
+      {
+        title: 'Github',
+        link: 'https://github.com/kusahio',
+        icon: 'github'
+      }
+    ]
+  }
 }

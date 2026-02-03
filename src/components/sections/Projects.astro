@@ -1,0 +1,74 @@
+---
+import { CV } from "@/data/cv";
+import { Image } from "astro:assets";
+import { Link } from "@/components/ui/Link";
+import IconComponent from "../ui/Icons";
+
+const { worksProjects } = CV;
+---
+
+<section
+  class="w-full flex justify-center px-6 md:px-12 lg:px-24 py-16 md:py-24 overflow-hidden bg-brand-bg"
+>
+  <div class="w-full max-w-7xl flex flex-col gap-16">
+    <h2
+      class="text-center md:text-left font-display text-4xl md:text-5xl uppercase text-brand-black"
+    >
+      {worksProjects.title}
+    </h2>
+    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+      {
+        worksProjects.projects.map((project, i) => (
+          <article class="flex flex-col md:flex-row border-4 border-brand-black bg-white
+          shadow-[8px_8px_0px_0px_var(--color-brand-black)] hover:translate-x-0.5 hover:translate-y-0.5
+          hover:shadow-[4px_4px_0px_0px_var(--color-brand-black)] transition-all duration-200 group">
+            <div class="w-full flex-col flex xl:flex-row">
+              <div class="order-2 xl:order-1 w-full xl:w-2/3 flex flex-col p-4 md:p-8 gap-4 md:gap-6">
+                <div class="flex flex-row items-start flex-nowrap gap-4">
+                  <span class="text-2xl lg:text-3xl text-brand-red font-black leading-none select-none">
+                    {i < 10 ? `0${i + 1}.` : `${i + 1}.`}
+                  </span>
+                  <h3 class="text-lg lg:text-2xl font-display uppercase leading-tight text-brand-black">
+                    {project.title}
+                  </h3>
+                </div>
+                {project.description && (
+                  <p class="text-sm text-gray-500 min-h-12">
+                    {project.description}
+                  </p>
+                )}
+                <div class="w-full flex flex-row pt-6 border-t border-gray-400 gap-4">
+                  {project.tags && project.tags.length > 0 && (
+                    <div class="flex flex-row flex-wrap gap-4 items-center">
+                      {project.tags.map(tag => <IconComponent icon={tag}/>)}
+                    </div>
+                  )}
+                  {(project.demoLink || project.repoLink) && (
+                    <div class="flex flex-col gap-4 ml-auto">
+                      {project.demoLink && (
+                        <Link href={project.demoLink} label="Web"/>
+                      )}
+                      {project.repoLink && (
+                        <Link href={project.repoLink} label="Github"/>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {project.thumb && (
+                <div class="order-1 xl:order-2 w-full flex xl:w-1/3 h-full max-h-48 md:min-h-48 xl:max-h-full aspect-video xl:aspect-square border-b lg:border-l border-gray-500">
+                  <Image
+                  src={project.thumb}
+                  alt={`Proyecto ${project.title}`}
+                  class="w-full h-full object-cover xl:grayscale xl:group-hover:grayscale-0 transition-all duration-200"
+                />
+                </div>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

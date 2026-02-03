@@ -1,0 +1,29 @@
+---
+import { CV } from "@/data/cv";
+import { Link } from "@/components/ui/Link";
+
+const { contact } = CV
+---
+
+<section class="w-full flex justify-center px-6 md:px-12 lg:px-24 py-16 md:py-24 overflow-hidden bg-brand-red">
+  <div class="w-full max-w-7xl flex flex-col gap-8">
+    <h2 class="font-display text-4xl md:text-5xl uppercase text-white">
+      {contact.title}
+    </h2>
+    <p class="text-white text-base max-w-lg font-semibold">
+      {contact.description}
+    </p>
+    {contact.contactLinks && contact.contactLinks.length > 0 &&(
+      <div class="flex flex-row flex-wrap gap-4 items-center">
+        {contact.contactLinks.map(item => (
+          <Link
+            href={item.title === 'Email' ? `mailto:${item.link}` : item.link}
+            icon={item.icon}
+            type='contact'
+            label={item.title}
+          />
+        ))}
+      </div>
+    )}
+  </div>
+</section>
