@@ -12,13 +12,16 @@ export const Link = ({ href, label, type='link', icon } : LinkProps) => {
   const typeLink = {
     link: 'border-3 border-brand-black px-4 py-1 hover:bg-brand-yellow text-xs transition-colors',
     contact: 'text-base flex-row-reverse border-4 border-white text-white px-4 py-2 md:hover:scale-[1.02] md:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all',
-    navbar: ''
+    navbar: 'text-sm hover:text-brand-red hover:underline decoration-4 decoration-brand-yellow underline-offset-4 transition-all'
   };
+
+  const isExternal = type !== 'navbar';
+
   return (
     <a 
       href={href.trim()}
-      target="_blank" 
-      rel="noopener noreferrer" 
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className={`min-w-28 flex items-center justify-center gap-2 font-bold uppercase ${typeLink[type]}`}
     >
       {label}
