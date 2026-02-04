@@ -1,7 +1,7 @@
 ---
 import { CV } from "@/data/cv";
-import { Link } from "@/components/ui/Link";
-import { CopyLink } from "@/components/ui/CopyLink";
+import Link from "@/components/ui/Link.astro";
+import CopyLink from "@/components/ui/CopyLink.astro";
 
 const { contact } = CV
 ---
@@ -30,8 +30,7 @@ const { contact } = CV
                 </div>
 
                 <div class="hidden md:block">
-                  <CopyLink 
-                    client:visible 
+                  <CopyLink
                     value={item.link} 
                     label={item.title} 
                     icon={item.icon} 

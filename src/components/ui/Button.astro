@@ -1,0 +1,32 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
+  variant?: 'primary' | 'secondary';
+};
+
+const { 
+  as: Tag = 'button', 
+  variant = 'primary', 
+  class: className, 
+  ...props 
+} = Astro.props;
+
+const baseStyles = "inline-flex items-center justify-center gap-2 px-6 py-2 font-display font-bold uppercase border-2 border-brand-black transition-all active:translate-y-1 active:shadow-none cursor-pointer";
+
+const variants = {
+  primary: "bg-brand-red text-white shadow-[4px_4px_0px_0px_var(--color-brand-black)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_var(--color-brand-black)]",
+  secondary: "bg-white text-brand-black shadow-[4px_4px_0px_0px_var(--color-brand-black)] hover:bg-brand-yellow hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_var(--color-brand-black)]"
+};
+---
+
+<Tag 
+  class:list={[
+    baseStyles, 
+    variants[variant as keyof typeof variants], 
+    className
+    ]} 
+  {...props}
+>
+  <slot />
+</Tag>

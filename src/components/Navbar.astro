@@ -1,9 +1,11 @@
 ---
-import Button from "@/components/ui/Button";
-import { IconMenu } from "@tabler/icons-react";
-import { Link } from "@/components/ui/Link"
+import Button from "@/components/ui/Button.astro";
+import Link from "@/components/ui/Link.astro";
+import MenuBar from "@/components/ui/MenuBar.astro";
+import Logo from "@/components/ui/Logo.astro";
+import { CV } from "@/data/cv";
 
-const MenuIcon = IconMenu;
+const  { header } = CV
 
 const navItems = [
   { label: "Sobre mí", href: "#about" },
@@ -17,12 +19,8 @@ const navItems = [
   class="w-full flex justify-center py-4 px-8 bg-brand-bg md:bg-brand-bg/90 backdrop-blur-sm border-b-4 border-brand-black sticky top-0 z-50"
 >
   <div class="w-full max-w-7xl flex justify-between items-center">
-    <a
-      href="/#"
-      class="font-display text-2xl uppercase font-black tracking-tighter text-brand-black select-none"
-    >
-      Camilo<span class="text-brand-red">Illanes</span>
-    </a>
+    <Logo href="/#" name={header.fullName.name} lastname={header.fullName.name}/>
+
     <nav class="hidden lg:flex items-center gap-4">
       {
         navItems.map((item) => (
@@ -38,17 +36,13 @@ const navItems = [
         href="/camilo_illanes_cv.pdf"
         target="_blank"
         variant="primary"
-        className="ml-4"
+        class="ml-4"
       >
         Descargar CV
       </Button>
     </nav>
 
-    <button id="menu-toggle" class=" cursor-pointer lg:hidden flex flex-col gap-1.5 p-2">
-      <span class="w-8 h-1 bg-brand-black"></span>
-      <span class="w-8 h-1 bg-brand-black"></span>
-      <span class="w-8 h-1 bg-brand-black"></span>
-    </button>
+    <MenuBar id="menu-toggle" />
   </div>
 
   <div
