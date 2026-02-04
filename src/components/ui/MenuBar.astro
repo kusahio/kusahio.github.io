@@ -1,0 +1,15 @@
+---
+import IconComponent from "./Icons";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<button id={id} class="cursor-pointer lg:hidden flex flex-col gap-1.5 p-2">
+  <span class="w-8 h-1 bg-brand-black"></span>
+  <span class="w-8 h-1 bg-brand-black"></span>
+  <span class="w-8 h-1 bg-brand-black"></span>
+</button>

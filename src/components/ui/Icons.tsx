@@ -14,7 +14,8 @@ import {
   IconCode,
   IconExternalLink,
   IconMail,
-  IconCopyright
+  IconCopyright,
+  IconMenu2
 } from '@tabler/icons-react'
 
 const ICON_MAP = {
@@ -32,7 +33,8 @@ const ICON_MAP = {
   linkedin: IconBrandLinkedin,
   externalLink: IconExternalLink,
   email: IconMail,
-  copyright: IconCopyright
+  copyright: IconCopyright,
+  menubar: IconMenu2
 };
 
 export type IconName = keyof typeof ICON_MAP;

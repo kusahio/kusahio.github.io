@@ -1,0 +1,34 @@
+---
+import IconComponent from "./Icons";
+
+interface Props {
+  href: string;
+  label?: string;
+  type?: 'contact' | 'link' | 'navbar';
+  icon?: string;
+}
+
+const { href, label, type = 'link', icon } = Astro.props;
+
+const styles = {
+  link: 'border-3 border-brand-black px-4 py-1 hover:bg-brand-yellow text-xs transition-colors',
+  contact: 'text-base flex-row-reverse border-4 border-white text-white px-4 py-2 md:hover:scale-[1.02] md:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all',
+  navbar: 'text-sm hover:text-brand-red hover:underline decoration-4 decoration-brand-yellow underline-offset-4 transition-all'
+};
+
+const isExternal = type !== 'navbar';
+---
+
+<a 
+  href={href.trim()}
+  target={isExternal ? "_blank" : undefined} 
+  rel={isExternal ? "noopener noreferrer" : undefined} 
+  class={`min-w-28 flex items-center justify-center gap-2 font-bold uppercase ${styles[type]}`}
+>
+  {label}
+  {icon ? (
+    <IconComponent icon={icon} stroke={2} sizeClass="w-8 h-8" />
+  ) : (
+    type === 'link' && <IconComponent icon="externalLink" sizeClass="w-5 h-5"/>
+  )}
+</a>
