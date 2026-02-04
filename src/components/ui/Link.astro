@@ -1,5 +1,5 @@
 ---
-import IconComponent from "./Icons";
+import Icons from "./Icons.astro";
 
 interface Props {
   href: string;
@@ -27,8 +27,8 @@ const isExternal = type !== 'navbar';
 >
   {label}
   {icon ? (
-    <IconComponent icon={icon} stroke={2} sizeClass="w-8 h-8" />
+    <Icons icon={icon} stroke={2} sizeClass="w-8 h-8" />
   ) : (
-    type === 'link' && <IconComponent icon="externalLink" sizeClass="w-5 h-5"/>
+    type === 'link' && <Icons icon="externalLink" sizeClass="w-5 h-5"/>
   )}
 </a>
