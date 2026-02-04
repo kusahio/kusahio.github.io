@@ -1,11 +1,12 @@
 ---
 import { CV } from "@/data/cv";
 import { Link } from "@/components/ui/Link";
+import { CopyLink } from "@/components/ui/CopyLink";
 
 const { contact } = CV
 ---
 
-<section class="w-full flex justify-center px-6 md:px-12 lg:px-24 py-16 md:py-24 overflow-hidden bg-brand-red">
+<section id="contact" class="w-full flex justify-center px-6 md:px-12 lg:px-24 py-16 md:py-24 overflow-hidden bg-brand-red">
   <div class="w-full max-w-7xl flex flex-col gap-8">
     <h2 class="font-display text-4xl md:text-5xl uppercase text-white">
       {contact.title}
@@ -15,14 +16,39 @@ const { contact } = CV
     </p>
     {contact.contactLinks && contact.contactLinks.length > 0 &&(
       <div class="flex flex-row flex-wrap gap-4 items-center">
-        {contact.contactLinks.map(item => (
-          <Link
-            href={item.title === 'Email' ? `mailto:${item.link}` : item.link}
-            icon={item.icon}
-            type='contact'
-            label={item.title}
-          />
-        ))}
+        {contact.contactLinks.map(item => {
+          if (item.title === 'Email') {
+            return (
+              <>
+                <div class="md:hidden">
+                  <Link
+                    href={`mailto:${item.link}`}
+                    label={item.title}
+                    icon={item.icon}
+                    type="contact"
+                  />
+                </div>
+
+                <div class="hidden md:block">
+                  <CopyLink 
+                    client:visible 
+                    value={item.link} 
+                    label={item.title} 
+                    icon={item.icon} 
+                  />
+                </div>
+              </>
+            )
+          }
+          return (
+            <Link
+              href={item.link}
+              icon={item.icon}
+              type='contact'
+              label={item.title}
+            />
+          )
+        })}
       </div>
     )}
   </div>

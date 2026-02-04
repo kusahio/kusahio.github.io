@@ -38,7 +38,7 @@ interface Project {
   thumb?: ImageMetadata;
 }
 
-interface Contact{
+interface Contact {
   title: string;
   link: string;
   icon: string;
@@ -92,8 +92,7 @@ export const CV: CVData = {
   },
   about: {
     title: 'Sobre mí',
-    description: 'Soy Desarrollador Full Stack con foco en Frontend, con experiencia en aplicaciones en producción y trabajo colaborativo con equipos de UX, producto y backend.n\
-      Desarrollo interfaces con React y Next.js, integrando APIs REST y backend en Python (FastAPI, PostgreSQL). Mi formación en UX/UI me permite construir productos accesibles, mantenibles y pensados para usuarios reales, no solo desde lo visual sino también desde lo técnico.'
+    description: 'Soy desarrollador Full Stack con foco en frontend y experiencia trabajando en aplicaciones en producción. Desarrollo interfaces con React y Next.js, integrando APIs REST y backend en Python con FastAPI y bases de datos relacionales. Mi formación en UX/UI me ayuda a tomar mejores decisiones técnicas en la construcción de interfaces claras, accesibles y fáciles de mantener'
   },
   experience: {
     title: 'Experiencia',
@@ -177,10 +176,10 @@ export const CV: CVData = {
       },
       {
         title: 'Task Manager',
-        description: 'Proyecto de gestor de tareas.',
+        description: 'Sistema de gestión de tareas Full Stack con Next.js y FastAPI, autenticación JWT y base de datos PostgreSQL.',
         demoLink: 'https://task-manager-brown-tau.vercel.app/',
         repoLink: 'https://github.com/kusahio/task_manager',
-        tags: ['nextjs', 'python', 'typescript', 'postgres', 'fastapi'],
+        tags: ['nextjs', 'python', 'typescript', 'postgresql', 'fastapi'],
         thumb: getProjectImage('task-manager.png')
       }
     ]

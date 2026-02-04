@@ -14,3 +14,22 @@
 @utility text-stroke-black {
   -webkit-text-stroke: 2px #0A0A0A;
 }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-bg);
+  border: 2px solid var(--color-brand-black);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-red);
+}

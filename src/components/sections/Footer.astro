@@ -1,0 +1,21 @@
+---
+import IconComponent from "../ui/Icons";
+import { CV } from "@/data/cv";
+
+const { header } = CV;
+const year = new Date().getFullYear();
+---
+
+<footer class="w-full flex justify-center px-6 md:px-24 py-8 overflow-hidden bg-brand-black">
+  <p class="w-full max-w-7xl flex flex-row gap-4 justify-center items-center text-white text-lg font-display uppercase">
+    <span class="flex items-center gap-2">
+      <IconComponent icon='copyright' sizeClass="w-6 h-6" />
+      {year}
+    </span>
+    |
+    <span class="flex items-center">
+      {header.fullName.name}
+      <b class="text-brand-red">{header.fullName.lastname}</b>
+    </span>
+  </p>
+</footer>

@@ -13,7 +13,8 @@ import {
   IconApi,
   IconCode,
   IconExternalLink,
-  IconMail
+  IconMail,
+  IconCopyright
 } from '@tabler/icons-react'
 
 const ICON_MAP = {
@@ -26,11 +27,12 @@ const ICON_MAP = {
   git: IconBrandGit,
   github: IconBrandGithub,
   wordpress: IconBrandWordpress,
-  postgres: IconDatabase,
+  postgresql: IconDatabase,
   fastapi: IconApi,
   linkedin: IconBrandLinkedin,
   externalLink: IconExternalLink,
-  email: IconMail
+  email: IconMail,
+  copyright: IconCopyright
 };
 
 export type IconName = keyof typeof ICON_MAP;
