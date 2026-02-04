@@ -1,0 +1,42 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  icon: string;
+  stroke?: number;
+  sizeClass?: string;
+}
+
+const {
+  icon,
+  stroke = 1.7,
+  sizeClass = "w-7 h-7 md:w-10 md:h-10",
+} = Astro.props;
+
+const ICON_MAP: Record<string, string> = {
+  react: "tabler:brand-react",
+  nextjs: "tabler:brand-nextjs",
+  typescript: "tabler:brand-typescript",
+  python: "tabler:brand-python",
+  docker: "tabler:brand-docker",
+  figma: "tabler:brand-figma",
+  git: "tabler:brand-git",
+  github: "tabler:brand-github",
+  wordpress: "tabler:brand-wordpress",
+  postgresql: "tabler:database",
+  fastapi: "tabler:api",
+  linkedin: "tabler:brand-linkedin",
+  externalLink: "tabler:external-link",
+  email: "tabler:mail",
+  copyright: "tabler:copyright",
+  menubar: "tabler:menu-2",
+};
+
+const iconName = ICON_MAP[icon] || "tabler:code";
+---
+
+<Icon
+  name={iconName}
+  class={`text-current transition-colors duration-300 ${sizeClass}`}
+  stroke-width={stroke}
+/>
