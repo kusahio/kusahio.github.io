@@ -1,70 +1,40 @@
-# Portafolio Profesional - Camilo Illanes
+# Portafolio Web de Camilo Illanes
 
 ![Estado del Despliegue](https://github.com/kusahio/kusahio.github.io/actions/workflows/deploy.yml/badge.svg)
 ![Licencia](https://img.shields.io/badge/license-MIT-green)
 ![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=flat&logo=astro&logoColor=white)
 
-Este repositorio contiene el código fuente de mi portafolio profesional personal. Es un proyecto web estático diseñado para mostrar mis habilidades, proyectos y experiencia laboral, con un enfoque radical en el rendimiento y el diseño minimalista.
+Este repositorio contiene el código fuente de mi sitio web personal de presentación.  
+Está pensado para ser simple, rápido y claro, priorizando performance y mantenibilidad por sobre complejidad innecesaria.
 
-**Ver Online:** [kusahio.github.io](https://kusahio.github.io)
+Github Page: [https://kusahio.github.io](https://kusahio.github.io)
 
-## Sobre el Proyecto
+---
 
-El objetivo principal de este sitio es servir como carta de presentación digital. A diferencia de los portafolios tradicionales cargados de scripts pesados, esta web está construida sobre una arquitectura de **"Cero JavaScript por defecto"**.
+## ¿Qué es este proyecto?
 
-Esto significa que el sitio carga instantáneamente incluso en conexiones lentas, ya que todo el contenido se renderiza como HTML estático en el servidor, y la interactividad (como copiar el email) se maneja con micro-scripts nativos del navegador.
+Es mi **sitio web personal / portafolio profesional**, construido como un sitio estático.
 
-## Stack Tecnológico
+El objetivo principal es funcionar como carta de presentación: mostrar mi perfil, experiencia y forma de trabajar, sin intentar ser una aplicación compleja ni una SPA.
 
-El proyecto ha sido migrado de una arquitectura basada en React a una solución nativa de Astro para maximizar la velocidad:
+---
 
-- **Core:** [Astro](https://astro.build/) (v5) - Generador de sitios estáticos de alto rendimiento.
-- **Estilos:** [Tailwind CSS](https://tailwindcss.com/) (v4) - Framework de utilidad para un diseño "Brutalista" y responsivo.
-- **Iconos:** [Astro Icon](https://www.astroicon.dev/) + [Tabler Icons](https://tabler.io/) - Sistema de iconos SVG optimizados que no aumentan el bundle.
-- **Lenguaje:** TypeScript - Para una experiencia de desarrollo robusta y segura.
-- **Despliegue:** GitHub Actions & GitHub Pages.
+## Stack tecnológico
 
-## Arquitectura y Construcción
+El proyecto está construido con **Astro**, apuntando a generar HTML estático y minimizar JavaScript en el cliente.
 
-El sitio sigue una estructura de componentes reutilizables `.astro`:
+- **Astro (v5)** – Generación de sitios estáticos, priorizando performance
+- **Tailwind CSS (v4)** – Estilos utilitarios y responsive
+- **TypeScript** – Tipado y soporte durante el desarrollo
+- **Astro Icons / Tabler Icons** – Íconos SVG livianos
+- **GitHub Pages + GitHub Actions** – Deploy automático
 
-1.  **Componentes UI:** Botones, enlaces y tarjetas son componentes aislados que reciben `props` tipadas.
-2.  **Interactividad Ligera:** En lugar de cargar librerías como React para acciones simples, se utiliza JavaScript nativo (`Vanilla JS`) dentro de etiquetas `<script>` que se ejecutan solo cuando el componente está presente.
-3.  **Gestión de Assets:** Las imágenes y fuentes están optimizadas automáticamente por Astro.
+> No es una SPA ni depende de frameworks de UI pesados.  
+> El JavaScript se usa solo cuando es necesario y de forma puntual.
 
-## Instalación y Configuración Local
+---
 
-Si deseas clonar y ejecutar este proyecto en tu entorno local:
-
-### Prerrequisitos
-- Node.js (v18 o superior)
-- npm
-
-### Pasos
-
-1.  **Clonar el repositorio:**
-    ```bash
-    git clone [https://github.com/kusahio/kusahio.github.io.git](https://github.com/kusahio/kusahio.github.io.git)
-    cd kusahio.github.io
-    ```
-
-2.  **Instalar dependencias:**
-    ```bash
-    npm install
-    ```
-
-3.  **Iniciar el servidor de desarrollo:**
-    ```bash
-    npm run dev
-    ```
-    El sitio estará disponible en `http://localhost:4321`.
-
-4.  **Construir para producción (opcional):**
-    ```bash
-    npm run build
-    ```
-
-## Estructura del Proyecto
+## Estructura del proyecto
 
 ```text
 /
@@ -80,11 +50,63 @@ Si deseas clonar y ejecutar este proyecto en tu entorno local:
 └── package.json     # Dependencias del proyecto
 ```
 
-## Licencia
+---
 
-Este proyecto está bajo la **Licencia MIT**.
+## Cómo levantar el proyecto localmente
 
-Esto significa que eres libre de usar este código como base para tu propio portafolio, estudiarlo o modificarlo, siempre y cuando se incluya una copia de la licencia original y el aviso de copyright.
+### Requisitos
+
+- Node.js v18 o superior
+- npm
+
+### Pasos
+
+```bash
+git clone https://github.com/kusahio/kusahio.github.io.git
+cd kusahio.github.io
+npm install
+npm run dev
+```
+
+Servidor local disponible en:  
+`http://localhost:4321`
+
+### Build de producción
+
+```bash
+npm run build
+```
 
 ---
-Hecho por [Camilo Illanes](https://www.linkedin.com/in/camilo-illanes/).
+
+## Decisiones técnicas
+
+- Uso de **HTML estático** para mejorar tiempos de carga y accesibilidad
+- Tailwind para evitar CSS innecesario y mantener consistencia visual
+- Componentes simples, sin lógica compleja en el cliente
+- Deploy automático con GitHub Actions para mantener el sitio siempre actualizado
+
+---
+
+## Licencia y condiciones de uso
+
+Este proyecto se distribuye bajo **MIT License**.
+
+Podés usar, copiar, modificar y distribuir el código libremente, **siempre que se cumplan estas condiciones**:
+
+- Se debe mantener la licencia MIT incluida en el repositorio.
+- Se debe dar crédito visible al autor original (**Camilo Illanes**), ya sea:
+  - en el README del proyecto derivado, o
+  - en la documentación, o
+  - en el footer o sección de créditos del sitio resultante.
+
+Esto aplica tanto para uso personal como comercial.
+
+---
+
+## Autor
+
+**Camilo Illanes**  
+Full Stack Developer (Frontend-focused).
+
+LinkedIn: [https://www.linkedin.com/in/camiloillanes](https://www.linkedin.com/in/camiloillanes/)
