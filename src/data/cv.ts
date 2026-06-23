@@ -85,18 +85,32 @@ export const CV: CVData = {
       name: 'Camilo',
       lastname: 'Illanes'
     },
-    role: 'Full Stack Developer',
-    tagline: 'Frontend enfocado en producción, integración con APIs y backend',
+    role: 'Frontend & Fullstack Developer',
+    tagline: 'Desarrollo de interfaces en producción con integración de APIs y servicios backend',
     location: 'Coquimbo, Chile',
     yearsExperience: '7+'
   },
   about: {
     title: 'Sobre mí',
-    description: 'Soy desarrollador Full Stack con foco en frontend y experiencia trabajando en aplicaciones en producción. Desarrollo interfaces con React y Next.js, integrando APIs REST y backend en Python con FastAPI y bases de datos relacionales. Mi formación en UX/UI me ayuda a tomar mejores decisiones técnicas en la construcción de interfaces claras, accesibles y fáciles de mantener'
+    description: `Soy desarrollador Full Stack con enfoque en frontend y experiencia en aplicaciones en producción. Desarrollo interfaces con React y Next.js, integrando APIs REST y servicios backend en Python con FastAPI y bases de datos relacionales.
+    \nMi formación en UX/UI me permite tomar mejores decisiones en la construcción de interfaces claras, accesibles y mantenibles, orientadas tanto a usuario como a producto.`
   },
   experience: {
     title: 'Experiencia',
     jobs: [
+      {
+        company: 'SocialTravel',
+        role: 'Desarrollador Backend & Automatización con IA',
+        period: 'Jul 2025 - Mar 2026',
+        responsibilities: [
+          'Desarrollo de APIs en Python (FastAPI) para gestión de disponibilidad y consultas de reservas.',
+          'Implementación de automatizaciones con n8n para orquestación de flujos entre formularios, base de datos y servicios internos.',
+          'Integración de APIs de IA (OpenAI y Gemini) para consultas inteligentes y sugerencia de fechas alternativas.',
+          'Desarrollo de flujos automatizados para procesamiento de solicitudes y atención de usuarios.',
+          'Integración de herramientas como Typeform y WordPress (Elementor) como capas de entrada y visualización del sistema.'
+        ],
+        summary: 'Desarrollo de APIs backend, automatización de flujos e integración de IA en plataforma de gestión hotelera.'
+      },
       {
         company: 'Red MTS',
         role: 'Desarrollador Front-End / UI',
