@@ -1,8 +1,6 @@
 ---
 import "@/styles/global.css";
 import Navbar from "@/components/Navbar.astro";
-import ogImageLarge from "@/assets/og-image.jpg";
-import ogImageSquare from "@/assets/og-image-square.jpg";
 
 interface Props {
   title: string;
@@ -11,6 +9,12 @@ interface Props {
 }
 
 const { title, description, permaLink } = Astro.props;
+
+const ogImageLarge = new URL('/og-image.jpg', Astro.site);
+const ogImageSquare = new URL('/og-image-square.jpg', Astro.site);
+const favicon = new URL('/favicon.svg', Astro.site);
+const link = new URL(permaLink, Astro.site);
+
 ---
 
 <!doctype html>
@@ -19,7 +23,7 @@ const { title, description, permaLink } = Astro.props;
     <meta charset="utf-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +33,7 @@ const { title, description, permaLink } = Astro.props;
     />
     <title>{title}</title>
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={permaLink} />
+    <meta property="og:url" content={link} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
 
@@ -45,7 +49,7 @@ const { title, description, permaLink } = Astro.props;
     <meta property="twitter:image" content={ogImageLarge} />
 
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={permaLink} />
+    <meta property="twitter:url" content={link} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImageLarge} />
