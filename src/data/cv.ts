@@ -168,34 +168,45 @@ He trabajado tanto en frontend como en backend, desarrollando interfaces, APIs e
   skills: {
     title: 'Tech Stack',
     skillSet: [
-      { name: "React", icon: "react" },
-      { name: "Next.js", icon: "nextjs" },
-      { name: "TypeScript", icon: "typescript" },
       { name: "Python", icon: "python" },
       { name: "FastAPI", icon: "fastapi" },
       { name: "PostgreSQL", icon: "postgresql" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "React", icon: "react" },
+      { name: "Next.js", icon: "nextjs" },
       { name: "Docker", icon: "docker" },
       { name: "Git", icon: "git" },
-      { name: "Figma", icon: "figma" },
+      { name: "n8n", icon: "n8n" },
     ]
   },
   worksProjects: {
     title: 'Proyectos',
     projects: [
       {
-        title: 'Web Dentimagen',
-        description: 'Diseño y desarrollo web enfocado en la experiencia de usuario.',
-        demoLink: 'https://dentimagen.cl/',
-        tags: ['wordpress'],
-        thumb: getProjectImage('dentimagen.jpg')
+        title: 'FastAPI Multi-Tenant SaaS',
+        description: 'Laboratorio personal para explorar arquitectura backend, multi-tenancy, RBAC y diseño de aplicaciones SaaS utilizando FastAPI, SQLAlchemy y PostgreSQL.',
+        repoLink: 'https://github.com/kusahio/fastapi-multitenant-saas',
+        tags: [
+          'python',
+          'fastapi',
+          'postgresql',
+          'sqlalchemy',
+          'jwt'
+        ],
+        /*thumb: getProjectImage('fastapi-multitenant-saas.png')*/
       },
       {
-        title: 'Task Manager',
-        description: 'Sistema de gestión de tareas Full Stack con Next.js y FastAPI, autenticación JWT y base de datos PostgreSQL.',
-        demoLink: 'https://task-manager-brown-tau.vercel.app/',
-        repoLink: 'https://github.com/kusahio/task_manager',
-        tags: ['nextjs', 'python', 'typescript', 'postgresql', 'fastapi'],
-        thumb: getProjectImage('task-manager.png')
+        title: 'TaskFlow IA',
+        description: 'Aplicación Full Stack para gestión de tareas mediante IA generativa, integrando FastAPI, Next.js, PostgreSQL y modelos LLM.',
+        repoLink: 'https://github.com/kusahio/taskFlow',
+        tags: [
+          'nextjs',
+          'python',
+          'fastapi',
+          'postgresql',
+          'ai'
+        ],
+        /*thumb: getProjectImage('task-manager.png')*/
       }
     ]
   },
