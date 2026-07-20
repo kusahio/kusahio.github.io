@@ -85,22 +85,23 @@ export const CV: CVData = {
       name: 'Camilo',
       lastname: 'Illanes'
     },
-    role: 'Frontend & Fullstack Developer',
-    tagline: 'Desarrollo de interfaces en producción con integración de APIs y servicios backend',
-    location: 'Coquimbo, Chile',
-    yearsExperience: '7+'
+    role: 'Software Developer',
+    tagline: 'Python • FastAPI • React • Next.js',
+    location: 'Chile',
+    yearsExperience: '8+'
   },
   about: {
     title: 'Sobre mí',
-    description: `Soy desarrollador Full Stack con enfoque en frontend y experiencia en aplicaciones en producción. Desarrollo interfaces con React y Next.js, integrando APIs REST y servicios backend en Python con FastAPI y bases de datos relacionales.
-    \nMi formación en UX/UI me permite tomar mejores decisiones en la construcción de interfaces claras, accesibles y mantenibles, orientadas tanto a usuario como a producto.`
+    description: `Desarrollador de software con experiencia construyendo aplicaciones web para entornos productivos.
+
+He trabajado tanto en frontend como en backend, desarrollando interfaces, APIs e integraciones entre sistemas. Disfruto entender los problemas antes de elegir una tecnología y construir soluciones claras, mantenibles y preparadas para evolucionar.`
   },
   experience: {
     title: 'Experiencia',
     jobs: [
       {
         company: 'SocialTravel',
-        role: 'Desarrollador Backend & Automatización con IA',
+        role: 'Backend Developer | Automatización e Integración de IA',
         period: 'Jul 2025 - Mar 2026',
         responsibilities: [
           'Desarrollo de APIs en Python (FastAPI) para gestión de disponibilidad y consultas de reservas.',
@@ -113,7 +114,7 @@ export const CV: CVData = {
       },
       {
         company: 'Red MTS',
-        role: 'Desarrollador Front-End / UI',
+        role: 'Frontend Developer',
         period: 'Jul 2020 - Oct 2024',
         responsibilities: [
           'Desarrollo de interfaces en producción con React y componentes reutilizables.',
@@ -134,7 +135,7 @@ export const CV: CVData = {
       },
       {
         company: 'Walmart Chile',
-        role: 'Diseñador Web',
+        role: 'Frontend Developer | Web Designer',
         period: 'Jul 2017 - Ene 2020',
         responsibilities: [
           'Desarrollo y mantenimiento de interfaces web accesibles y responsive.',
@@ -154,7 +155,7 @@ export const CV: CVData = {
       },
       {
         company: 'Falabella Retail S.A',
-        role: 'Diseñador Web',
+        role: 'Web Designer',
         period: 'Feb 2017 - Jul 2017',
         responsibilities: [
           'Implementación de vistas web responsivas.',
