@@ -1,5 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
+import sqlalchemyIcon from "@/assets/icons/sqlalchemy.svg";
+import fastapiIcon from "@/assets/icons/fastapi.svg";
+import jwtIcon from "@/assets/icons/jwt-logo.svg";
+import codeAiIcon from "@/assets/icons/code-ai.svg";
+import n8nIcon from "@/assets/icons/n8n.svg";
 
 interface Props {
   icon: string;
@@ -13,7 +18,7 @@ const {
   sizeClass = "w-7 h-7 md:w-10 md:h-10",
 } = Astro.props;
 
-const ICON_MAP: Record<string, string> = {
+const ICON_MAP: Record<string, string | ImageMetadata> = {
   react: "tabler:brand-react",
   nextjs: "tabler:brand-nextjs",
   typescript: "tabler:brand-typescript",
@@ -24,19 +29,40 @@ const ICON_MAP: Record<string, string> = {
   github: "tabler:brand-github",
   wordpress: "tabler:brand-wordpress",
   postgresql: "tabler:database",
-  fastapi: "tabler:api",
+  fastapi: fastapiIcon,
   linkedin: "tabler:brand-linkedin",
   externalLink: "tabler:external-link",
   email: "tabler:mail",
   copyright: "tabler:copyright",
   menubar: "tabler:menu-2",
+  sqlalchemy: sqlalchemyIcon,
+  jwt: jwtIcon,
+  ai: codeAiIcon,
+  n8n: n8nIcon,
 };
 
-const iconName = ICON_MAP[icon] || "tabler:code";
+const iconData = ICON_MAP[icon];
+const isTablerIcon = typeof iconData === "string";
 ---
 
-<Icon
-  name={iconName}
-  class={`text-current transition-colors duration-300 ${sizeClass}`}
-  stroke-width={stroke}
-/>
+{iconData ? (
+  isTablerIcon ? (
+    <Icon
+      name={iconData}
+      class={`text-current transition-colors duration-300 ${sizeClass}`}
+      stroke-width={stroke}
+    />
+  ) : (
+    <img
+      src={iconData.src}
+      alt={icon}
+      class={`text-current transition-colors duration-300 ${sizeClass}`}
+    />
+  )
+) : (
+  <Icon
+    name="tabler:code"
+    class={`text-current transition-colors duration-300 ${sizeClass}`}
+    stroke-width={stroke}
+  />
+)}
