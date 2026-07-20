@@ -1,6 +1,11 @@
 ---
 import "@/styles/global.css";
+import '@fontsource/archivo-black/400.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/800.css';
 import Navbar from "@/components/Navbar.astro";
+import { CV } from "@/data/cv";
 
 interface Props {
   title: string;
@@ -15,6 +20,12 @@ const ogImageSquare = new URL('/og-image-square.jpg', Astro.site);
 const favicon = new URL('/favicon.svg', Astro.site);
 const link = new URL(permaLink, Astro.site);
 
+const navItems = [
+  { label: "Sobre mí", href: "#about" },
+  { label: "Experiencia", href: "#experience" },
+  { label: "Proyectos", href: "#projects" },
+  { label: "Hablemos", href: "#hablemos" },
+];
 ---
 
 <!doctype html>
@@ -25,12 +36,6 @@ const link = new URL(permaLink, Astro.site);
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href={favicon} />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;800&display=swap"
-      rel="stylesheet"
-    />
     <title>{title}</title>
     <meta property="og:type" content="website" />
     <meta property="og:url" content={link} />
@@ -57,7 +62,7 @@ const link = new URL(permaLink, Astro.site);
   <body
     class="bg-brand-bg text-brand-black font-body selection:bg-brand-yellow"
   >
-    <Navbar />
+    <Navbar header={CV.header} navItems={navItems} />
     <slot />
   </body>
 </html>

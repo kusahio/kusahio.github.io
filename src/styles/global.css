@@ -33,3 +33,7 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-brand-red);
 }
+
+@utility contact-btn {
+  @apply min-w-28 flex items-center justify-center gap-2 font-bold uppercase;
+}

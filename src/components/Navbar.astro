@@ -3,16 +3,14 @@ import Button from "@/components/ui/Button.astro";
 import Link from "@/components/ui/Link.astro";
 import MenuBar from "@/components/ui/MenuBar.astro";
 import Logo from "@/components/ui/Logo.astro";
-import { CV } from "@/data/cv";
+import type { CVData } from "@/data/cv";
 
-const  { header } = CV
+interface Props {
+  header: CVData['header'];
+  navItems: { label: string; href: string }[];
+}
 
-const navItems = [
-  { label: "Sobre mí", href: "#about" },
-  { label: "Experiencia", href: "#experience" },
-  { label: "Proyectos", href: "#projects" },
-  { label: "Hablemos", href: "#hablemos" },
-];
+const { header, navItems } = Astro.props;
 ---
 
 <header
@@ -72,14 +70,16 @@ const navItems = [
   const mobileMenu = document.getElementById("mobile-menu");
 
   menuToggle?.addEventListener("click", () => {
+    const isOpen = mobileMenu?.classList.toggle("flex");
     mobileMenu?.classList.toggle("hidden");
-    mobileMenu?.classList.toggle("flex");
+    menuToggle?.setAttribute("aria-expanded", String(isOpen));
   });
 
   mobileMenu?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       mobileMenu?.classList.add("hidden");
       mobileMenu?.classList.remove("flex");
+      menuToggle?.setAttribute("aria-expanded", "false");
     });
   });
 </script>

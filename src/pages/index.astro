@@ -1,12 +1,13 @@
 ---
-import Hero from "@/components/sections/Hero.astro";
 import Layout from "@/layouts/Layout.astro"
+import Hero from "@/components/sections/Hero.astro";
 import About from "@/components/sections/About.astro";
 import Experience from "@/components/sections/Experience.astro";
 import TechStack from "@/components/sections/TechStack.astro";
-import Projects from "@/components/sections/Projects.astro"
+import Projects from "@/components/sections/Projects.astro";
 import Contact from "@/components/sections/Contact.astro";
 import Footer from "@/components/sections/Footer.astro";
+import { CV } from "@/data/cv";
 ---
 
 <Layout
@@ -15,12 +16,12 @@ import Footer from "@/components/sections/Footer.astro";
 	permaLink="/"
 >
 	<main>
-		<Hero />
-		<About />
-		<Experience />
-		<TechStack />
-		<Projects />
-		<Contact />
-		<Footer />
+		<Hero header={CV.header} />
+		<About about={CV.about} header={CV.header} />
+		<Experience experience={CV.experience} />
+		<TechStack skills={CV.skills} />
+		<Projects worksProjects={CV.worksProjects} />
+		<Contact contact={CV.contact} />
+		<Footer header={CV.header} />
 	</main>
 </Layout>

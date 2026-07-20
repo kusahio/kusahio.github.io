@@ -6,7 +6,13 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<button id={id} class="cursor-pointer lg:hidden flex flex-col gap-1.5 p-2">
+<button 
+  id={id} 
+  class="cursor-pointer lg:hidden flex flex-col gap-1.5 p-2"
+  aria-label="Abrir menú de navegación"
+  aria-expanded="false"
+  aria-controls="mobile-menu"
+>
   <span class="w-8 h-1 bg-brand-black"></span>
   <span class="w-8 h-1 bg-brand-black"></span>
   <span class="w-8 h-1 bg-brand-black"></span>
