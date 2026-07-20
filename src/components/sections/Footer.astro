@@ -1,8 +1,12 @@
 ---
+import type { CVData } from "@/data/cv";
 import Icons from "../ui/Icons.astro";
-import { CV } from "@/data/cv";
 
-const { header } = CV;
+interface Props {
+  header: CVData['header'];
+}
+
+const { header } = Astro.props;
 const year = new Date().getFullYear();
 ---
 

@@ -1,7 +1,11 @@
 ---
-import { CV } from "@/data/cv";
+import type { CVData } from "@/data/cv";
 
-const { experience } = CV;
+interface Props {
+  experience: CVData['experience'];
+}
+
+const { experience } = Astro.props;
 ---
 
 <section id="experience"
@@ -14,9 +18,10 @@ const { experience } = CV;
     <div class="w-full flex flex-col">
       {
         experience.jobs.map((job, i) => (
+          <Fragment key={job.company}>
           <div class="w-full flex flex-col md:flex-row md:justify-start border-b-4 border-brand-black py-6 gap-6">
             <div class="text-5xl text-brand-red font-display">
-              {Math.abs(1) < 10 ? `0${i + 1}` : i + 1}
+              {i + 1 < 10 ? `0${i + 1}` : i + 1}
             </div>
             <div class="flex flex-col">
               <h3 class="text-3xl font-black">{job.role}</h3>
@@ -30,6 +35,7 @@ const { experience } = CV;
               </div>
             </div>
           </div>
+          </Fragment>
         ))
       }
     </div>

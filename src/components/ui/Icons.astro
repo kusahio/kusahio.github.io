@@ -6,18 +6,6 @@ import jwtIcon from "@/assets/icons/jwt-logo.svg";
 import codeAiIcon from "@/assets/icons/code-ai.svg";
 import n8nIcon from "@/assets/icons/n8n.svg";
 
-interface Props {
-  icon: string;
-  stroke?: number;
-  sizeClass?: string;
-}
-
-const {
-  icon,
-  stroke = 1.7,
-  sizeClass = "w-7 h-7 md:w-10 md:h-10",
-} = Astro.props;
-
 const ICON_MAP: Record<string, string | ImageMetadata> = {
   react: "tabler:brand-react",
   nextjs: "tabler:brand-nextjs",
@@ -40,6 +28,20 @@ const ICON_MAP: Record<string, string | ImageMetadata> = {
   ai: codeAiIcon,
   n8n: n8nIcon,
 };
+
+type IconName = keyof typeof ICON_MAP;
+
+interface Props {
+  icon: IconName;
+  stroke?: number;
+  sizeClass?: string;
+}
+
+const {
+  icon,
+  stroke = 1.7,
+  sizeClass = "w-7 h-7 md:w-10 md:h-10",
+} = Astro.props;
 
 const iconData = ICON_MAP[icon];
 const isTablerIcon = typeof iconData === "string";
