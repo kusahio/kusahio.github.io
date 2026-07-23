@@ -9,7 +9,7 @@ export const CV: CVData = {
       name: "Camilo",
       lastname: "Illanes",
     },
-    role: "Software Developer",
+    role: "Fullstack Developer",
     tagline: "Python • FastAPI • React • Next.js",
     location: "Chile",
     yearsExperience: "8+",
@@ -17,7 +17,7 @@ export const CV: CVData = {
   },
   about: {
     title: "Sobre mí",
-    description: `Desarrollador de software con experiencia construyendo aplicaciones web para entornos productivos.
+    description: `Desarrollador Fullstack con experiencia construyendo aplicaciones web para entornos productivos.
 
 He trabajado tanto en frontend como en backend, desarrollando interfaces, APIs e integraciones entre sistemas. Disfruto entender los problemas antes de elegir una tecnología y construir soluciones claras, mantenibles y preparadas para evolucionar.`,
   },
