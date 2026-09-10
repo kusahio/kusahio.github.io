@@ -12,8 +12,8 @@ export const CV: CVData = {
     role: "Software Developer",
     tagline: "Python • FastAPI • React • Next.js",
     location: "Chile",
-    yearsExperience: "8+",
-    yearsLabel: "Años en\nDesarrollo Web",
+    yearsExperience: "5+",
+    yearsLabel: "Años en\nDesarrollo",
   },
   about: {
     title: "Sobre mí",
