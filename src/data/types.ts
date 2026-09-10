@@ -45,8 +45,8 @@ export interface CVData {
     tagline?: string;
     availability?: string;
     location: string;
-    yearsExperience: string;
-    yearsLabel: string;
+    yearsExperience?: string;
+    yearsLabel?: string;
   };
   about: {
     title: string;

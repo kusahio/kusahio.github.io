@@ -1,0 +1,27 @@
+---
+interface Props {
+  yearsExperience: string;
+  yearsLabel?: string;
+}
+
+const { yearsExperience, yearsLabel } = Astro.props;
+---
+
+<div
+  class="flex mt-4 md:mt-0 md:absolute md:top-5 md:right-0 lg:-right-32 flex-col items-center justify-center
+          w-24 h-24 md:w-48 md:h-48 bg-brand-yellow
+          border-4 border-black rotate-12
+          shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
+          hover:rotate-6 hover:scale-110 transition-all duration-300 cursor-default"
+>
+  <span class="font-black text-3xl md:text-5xl leading-none text-black">
+    {yearsExperience}
+  </span>
+  <span
+    class="font-bold text-xs uppercase text-center leading-tight mt-1 text-black"
+  >
+    {(yearsLabel ?? '').split('\n').map((line: string, i: number) => (
+      <Fragment key={i}>{i > 0 && <br />}{line}</Fragment>
+    ))}
+  </span>
+</div>
